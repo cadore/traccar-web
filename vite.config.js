@@ -13,7 +13,7 @@ export default defineConfig(() => ({
     },
   },
   build: {
-    outDir: 'build',
+     outDir: '../traccar/web',
   },
   plugins: [
     svgr(),

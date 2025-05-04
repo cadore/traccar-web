@@ -40,7 +40,7 @@ const RouteReportPage = () => {
   const readonly = useRestriction('readonly');
 
   const [available, setAvailable] = useState([]);
-  const [columns, setColumns] = useState(['fixTime', 'latitude', 'longitude', 'speed', 'address']);
+  const [columns, setColumns] = useState(['fixTime', 'speed', 'address', 'ignition']);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);

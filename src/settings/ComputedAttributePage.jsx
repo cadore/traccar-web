@@ -89,8 +89,8 @@ const ComputedAttributePage = () => {
               <Autocomplete
                 value={options.find((option) => option.key === item.attribute) || item.attribute}
                 onChange={(_, option) => {
-                  const attribute = option ? option.key || option : null;
-                  if (option && option.type) {
+                  const attribute = option ? (typeof option === 'string' ? option : option.key || option) : null;
+                  if (option && typeof option !== 'string' && option.type) {
                     setItem({ ...item, attribute, type: option.type });
                   } else {
                     setItem({ ...item, attribute });
@@ -107,10 +107,10 @@ const ComputedAttributePage = () => {
                   return filtered;
                 }}
                 options={options}
-                getOptionLabel={(option) => option.name || option}
+                getOptionLabel={(option) => (typeof option === 'string' ? option : option.name || '')}
                 renderOption={(props, option) => (
                   <li {...props}>
-                    {option.name}
+                    {typeof option === 'string' ? option : option.name}
                   </li>
                 )}
                 renderInput={(params) => (
